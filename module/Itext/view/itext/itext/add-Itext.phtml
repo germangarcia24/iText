@@ -15,7 +15,7 @@
  echo "<br/>";
  echo $this->formRow($form->get('idf'));
  echo "<br/>";?>
- <input type="Textarea" name="value" id="value">
+ <textarea type="text" name="value" id="value"></textarea>
  <?php
  //echo $this->formRow($form->get('value'));
  echo "<br/>";
@@ -25,7 +25,7 @@
  <audio src="" hidden class=speech></audio> 
  <script> 
 	 $("a.say").on('click', function(e){ e.preventDefault();
-	  var text = $("input[name=value]").val();
+	  var text = $("textarea[name=value]").val();
 	   responsiveVoice.speak(text,"Spanish Female");
 	    text=encodeURIComponent(text); var url="http://" }) 
 </script> 
