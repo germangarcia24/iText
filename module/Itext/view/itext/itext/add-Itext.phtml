@@ -1,3 +1,6 @@
+<script src="http://code.jquery.com/jquery-1.12.1.js"></script>
+<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
 <?php
  $title = 'Agregar Texto';
  $this->headTitle($title);
@@ -11,9 +14,18 @@
  echo $this->formHidden($form->get('ID'));
  echo "<br/>";
  echo $this->formRow($form->get('idf'));
- echo "<br/>";
- echo $this->formRow($form->get('value'));
+ echo "<br/>";?>
+ <input type="Textarea" name="value" id="value">
+ <?php
+ //echo $this->formRow($form->get('value'));
  echo "<br/>";
  echo $this->formSubmit($form->get('submit'));
  echo $this->form()->closeTag();
- 
+ ?><a href="#" class="say">Escuchar Texto!</a> 
+ <audio src="" hidden class=speech></audio> 
+ <script> 
+	 $("a.say").on('click', function(e){ e.preventDefault();
+	  var text = $("input[name=value]").val();
+	   responsiveVoice.speak(text,"Spanish Female");
+	    text=encodeURIComponent(text); var url="http://" }) 
+</script> 
