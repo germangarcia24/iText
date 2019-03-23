@@ -33,6 +33,7 @@ class ItextController extends AbstractActionController
 
     public function addItextAction(){
         $form = new ItextForm();
+        $form = $this->setFormSelectOptions($form, 0);
         
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -50,7 +51,19 @@ class ItextController extends AbstractActionController
         }
         return array('form' => $form);   
     }
-
+    private function setFormSelectOptions($formItext, $valueDefault){
+        $itexts = array();
+        foreach ($this->getItextTable()->fetchAllTexts() as $itext)
+        {
+            $itexts += array( $itext->value => $itext->value );
+        }
+        $formItext->get('value1')->setValueOptions($itexts);
+        if($valueDefault != 0){
+            $formItext->get('value1')->setValue($valueDefault);            
+        }
+        return $formItext;
+    }
+    /*
     public function updateItextAction(){
         
         $id = (int) $this->params()->fromRoute('ID', 0);
@@ -104,7 +117,7 @@ class ItextController extends AbstractActionController
             return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'addItext'));
         }
     }
-
+    */
         
 
 }

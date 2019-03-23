@@ -19,6 +19,17 @@
              'name' => 'idf',
              'type' => 'Hidden',
          ));
+         //Lista desplegables con los textos en la base (llena desde la xbase)
+        $this->add(array(
+             'type' => 'Zend\Form\Element\Select',
+             'name' => 'value1',
+             'options' => array(
+                     'label' => 'Selecciona un texto',
+                     //'empty_option' => 'Selecciona...',
+                     'value_options' => array(
+                     ),
+             )
+        ));
          //Área de texto
          $this->add(array(
              'name' => 'value',
@@ -34,6 +45,7 @@
              'attributes' => array(
                  'value' => 'Guardar',
                  'id' => 'submitbutton',
+                'class' => 'btn btn-info'
              ),
          ));
      }

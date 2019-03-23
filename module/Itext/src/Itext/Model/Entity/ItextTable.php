@@ -16,7 +16,7 @@ namespace Itext\Model\Entity;
          $this->tableGateway = $tableGateway;
      }
 
-     public function fetchAll()
+     public function fetchAllTexts()
      {
          $resultSet = $this->tableGateway->select();
          return $resultSet;
