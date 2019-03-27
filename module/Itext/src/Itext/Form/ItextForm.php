@@ -24,12 +24,13 @@
              'type' => 'Zend\Form\Element\Select',
              'name' => 'value1',
              'options' => array(
-                     'label' => 'Selecciona un texto',
+                     'label' => 'Selecciona un texto: ',
                      //'empty_option' => 'Selecciona...',
                      'value_options' => array(
                      ),
              )
         ));
+        /*
          //Área de texto
          $this->add(array(
              'name' => 'value',
@@ -37,7 +38,12 @@
              'options' => array(
                  'label' => 'Ingrese texto ',
              ),
+             'attributes' => array(
+                'rows' => '10', 
+                'cols' => '40'
+             )
          ));
+         */
          //Botón de enviar y/o guardar
          $this->add(array(
              'name' => 'submit',

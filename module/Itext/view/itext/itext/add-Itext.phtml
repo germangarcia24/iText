@@ -1,5 +1,4 @@
-<script src="http://code.jquery.com/jquery-1.12.1.js"></script>
-<script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+
 
 <?php
  $title = 'Agregar Texto';
@@ -23,7 +22,7 @@ echo $this->formRow($form->get('idf'));?>
 	
 	<tr>
 		 <td>
-		 	<textarea type="text" name="value" id="value"></textarea>
+		 	<textarea type="text" name="value" id="value" cols="50" rows="10"></textarea>
 		 </td>
 		 <td><?php
 			 echo $this->formSubmit($form->get('submit'));
