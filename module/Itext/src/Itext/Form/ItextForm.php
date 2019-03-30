@@ -54,6 +54,17 @@
                 'class' => 'btn btn-info'
              ),
          ));
+
+         //Botón para carga de texto
+         $this->add(array(
+             'name' => 'submit1',
+             'type' => 'Submit',
+             'attributes' => array(
+                 'value' => 'Cargar texto',
+                 'id' => 'submitbutton',
+                'class' => 'btn btn-info'
+             ),
+         ));
      }
  }
 

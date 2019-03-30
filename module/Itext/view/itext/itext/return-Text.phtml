@@ -1,13 +1,13 @@
 
 
 <?php
- $title = 'Agregar Texto';
+ $title = 'Escuchar texto';
  $this->headTitle($title);
  ?>
  <h1><?php echo $this->escapeHtml($title); ?></h1>
  
  <?php
- $form->setAttribute('action', $this->url('itext/itext', array('controller' => 'itext', 'action'=>'addItext')));
+ $form->setAttribute('action', $this->url('itext/itext', array('controller' => 'itext', 'action'=>'returnText', 'ID'=> $this->ID)));
  $form->prepare();
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('ID'));
@@ -16,10 +16,7 @@ echo $this->formRow($form->get('idf'));?>
 	
 		<tr>
 			 <td>
-			 <?php echo $this->formRow($form->get('value1')); ?>
-			 </td>
-			 <td>
-			 	<a class="btn btn-info" href="<?php echo $this->url('itext/itext', array('controller' => 'itext', 'action'=>'returnText', 'ID' => 'ID' ));?>">Escuchar texto</a>
+			 	<a class="btn btn-info" href="<?php echo $this->url('itext/itext', array('controller' => 'itext', 'action'=>'addItext'));?>">Atras</a>
 			 </td>
 		 </tr>
 	
@@ -28,9 +25,9 @@ echo $this->formRow($form->get('idf'));?>
 		 	<textarea type="text" name="value" id="value" cols="50" rows="10"></textarea>
 		 </td>
 		 <td><?php
-			 echo $this->formSubmit($form->get('submit'));
 			 echo $this->form()->closeTag();
 			 ?>
+			 <a href="#" class="btn btn-info">Atras</a>
 			 <a href="#" class="say btn btn-success" >Escuchar Texto!</a> 
 			 <audio src="" hidden class=speech></audio>
 		</td>

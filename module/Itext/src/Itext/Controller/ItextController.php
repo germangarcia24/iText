@@ -51,11 +51,52 @@ class ItextController extends AbstractActionController
         }
         return array('form' => $form);   
     }
+
+    public function returnTextAction(){
+        $ID = (int) $this->params()->fromRoute('ID', 0);
+        $itext = null;
+        if (!$ID) {
+            return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'Error'));
+        }
+        try {
+            $itext = $this->getItextTable()->getItextById($ID);
+            
+        }
+        catch (\Exception $ex) {
+            echo "Hubo un error"; 
+            return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'index'));
+            exit;
+        }
+
+        $form  = new ItextForm();
+        $form->bind($itext);
+        $form->get('ID')->setAttribute('value', $itext->ID);
+        $form->get('idf')->setAttribute('value', $itext->idf); 
+        $form->get('value')->setAttribute('value', $itext->value);
+        
+        $request = $this->getRequest();
+
+        if ($request->isPost()) {
+            $form->setInputFilter($itext->getInputFilter());
+            $form->setData($request->getPost());
+
+
+            if ($form->isValid()) {
+                return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'addItext'));
+            }
+        }
+
+        return array(
+            'ID' => $ID,
+            'form' => $form,
+        );
+
+    }
     private function setFormSelectOptions($formItext, $valueDefault){
         $itexts = array();
         foreach ($this->getItextTable()->fetchAllTexts() as $itext)
         {
-            $itexts += array( $itext->value => $itext->value );
+            $itexts += array( $itext->ID => $itext->value );
         }
         $formItext->get('value1')->setValueOptions($itexts);
         if($valueDefault != 0){
