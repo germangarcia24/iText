@@ -66,7 +66,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Itext\Controller\Itext' => 'Itext\Controller\ItextController',
-            //'Products\Controller\Category' => 'Products\Controller\CategoryController',
+            
         ),
     ),
     'view_manager' => array(

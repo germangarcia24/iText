@@ -53,7 +53,7 @@ class ItextController extends AbstractActionController
     }
 
     public function returnTextAction(){
-        $ID = (int) $this->params()->fromRoute('ID', 0);
+        $ID = (int) $this->params()->fromRoute('id', 0);
         $itext = null;
         if (!$ID) {
             return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'Error'));
