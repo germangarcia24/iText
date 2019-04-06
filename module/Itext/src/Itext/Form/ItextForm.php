@@ -19,7 +19,7 @@
              'name' => 'idf',
              'type' => 'Hidden',
          ));
-         //Lista desplegables con los textos en la base (llena desde la xbase)
+         //Lista desplegables con los textos en la base (llena desde la base)
         $this->add(array(
              'type' => 'Zend\Form\Element\Select',
              'name' => 'value1',

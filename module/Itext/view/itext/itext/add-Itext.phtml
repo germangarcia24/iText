@@ -16,10 +16,15 @@ echo $this->formRow($form->get('idf'));?>
 	
 		<tr>
 			 <td>
-			 <?php echo $this->formRow($form->get('value1')); ?>
+			 <?php
+			 $form->setAttribute('action', $this->url('itext/itext', array('controller' => 'itext', 'action'=>'returnText')));
+ 				$form->prepare();
+ 				echo $this->form()->openTag($form);
+  				echo $this->formRow($form->get('value1')); ?>
 			 </td>
 			 <td>
-			 	<a class="btn btn-info" href="<?php echo $this->url('itext/itext', array('controller' => 'itext', 'action'=>'returnText', 'id' => 'value1' ));?>">Escuchar texto</a>
+			 	<?php echo $this->formSubmit($form->get('submit1')); ?>
+			 	<?php echo $this->form()->closeTag(); ?>
 			 </td>
 		 </tr>
 	
