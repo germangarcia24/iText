@@ -49,11 +49,11 @@ echo $this->formRow($form->get('idf'));?>
 	    text=encodeURIComponent(text); var url="http://" }) 
 </script>
 <script >
-	$("a.say").on('click', function(e){
+	$("a.say1").on('click', function(e){
   
   e.preventDefault();
   
-  var text = $("input[name=text]").prop('value');
+  var text = $("input[name=value]").prop('value');
   text = text.split('');
   
   $.each(text, function(i, item) {        
