@@ -37,6 +37,8 @@ echo $this->formRow($form->get('idf'));?>
 			 echo $this->form()->closeTag();
 			 ?>
 			 <a href="#" class="say btn btn-success" >Escuchar Texto!</a>
+			 <br>
+			 <br>
 			 <a href="#" class="say1 btn btn-success" >Deletrear Texto!</a> 
 			 <audio src="" hidden class=speech></audio>
 		</td>
@@ -44,20 +46,16 @@ echo $this->formRow($form->get('idf'));?>
  </table> 
  <script> 
 	 $("a.say").on('click', function(e){ e.preventDefault();
-	  var text = $("textarea[name=value]").val();
-	   responsiveVoice.speak(text,"Spanish Female");
+	  	var text = $("textarea[name=value]").val();
+	   	responsiveVoice.speak(text,"Spanish Female");
 	    text=encodeURIComponent(text); var url="http://" }) 
 </script>
 <script >
-	$("a.say1").on('click', function(e){
-  
-  e.preventDefault();
-  
-  var text = $("input[name=value]").prop('value');
-  text = text.split('');
-  
-  $.each(text, function(i, item) {        
-    responsiveVoice.speak(item, "Spanish Female");
-  });  
-})
+	$("a.say1").on('click', function(e){ e.preventDefault();
+  		var text = $("textarea[name=value]").prop('value');
+  		text = text.split('');
+  		$.each(text, function(i, item) {        
+    	responsiveVoice.speak(item, "Spanish Female");
+  		});  
+	})
 </script> 

@@ -8,7 +8,7 @@
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-
+        <?php echo $this->headTitle()?>
         <!-- Le styles -->
         <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
                         ->prependStylesheet($this->basePath().'/css/bootstrap.min.css') ?>
@@ -22,9 +22,9 @@
         <script src="http://code.jquery.com/jquery-1.12.1.js"></script>
         <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
     </head>
-    <body background="#26c7e0">
+    <body>
         
-        <div class="container">
+        <div class="container" >
             <?php echo $this->content; ?>
             <hr>
             <footer>
