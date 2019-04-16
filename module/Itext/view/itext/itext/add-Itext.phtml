@@ -1,10 +1,10 @@
 
 
 <?php
- $title = 'Agregar Texto';
+ $title = 'iText';
  $this->headTitle($title);
  ?>
- <h1><?php echo $this->escapeHtml($title); ?></h1>
+ 
  
  <?php
  $form->setAttribute('action', $this->url('itext/itext', array('controller' => 'itext', 'action'=>'addItext')));
@@ -12,41 +12,39 @@
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('ID'));
 echo $this->formRow($form->get('idf'));?>
-<table>
-	
+<div align="center">
+	<h1><?php echo $this->escapeHtml($title); ?></h1>
+	<table>
+		
+			<tr>
+				 <td>
+				 	<?php echo  $this->formRow($form->get('value1')); ?>
+				 </td>
+			 </tr>
+		
 		<tr>
 			 <td>
-			 	<?php echo $this->formRow($form->get('value1')); ?>
+			 	<textarea type="text" name="value" id="value" cols="50" rows="10"></textarea>
 			 </td>
-			 <td>
-			 	<a class="btn btn-success" href="<?php echo $this->url('itext/itext',
-             	array('controller' => 'itext', 'action'=>'returnText', 'id' => 'value1' ));?>">Cargar texto</a>
-			 </td>
-		 </tr>
-	
-	<tr>
-		 <td>
-		 	<textarea type="text" name="value" id="value" cols="50" rows="10"></textarea>
-		 </td>
-		 <td><?php
-			 echo $this->formSubmit($form->get('submit'));
-			 echo $this->form()->closeTag();
-			 ?>
-			 <a href="#" class="say btn btn-success" >Escuchar Texto!</a>
-			 <br>
-			 <br>
-			 <a href="#" class="say1 btn btn-success" >Deletrear Texto!</a> 
-			 <audio src="" hidden class=speech></audio>
-		</td>
-	</tr>
- </table> 
+		</tr>
+		<tr>
+			<td><?php
+				 echo $this->formSubmit($form->get('submit'));
+				 echo $this->form()->closeTag();
+				 ?>
+				 <a href="#" class="say btn btn-success" >Escuchar Texto!</a>
+				 <a href="#" class="say1 btn btn-success" >Deletrear Texto!</a> 
+				 <audio src="" hidden class=speech></audio>
+			</td>
+		</tr>
+	 </table>
+</div> 
  <script> 
 	 $("a.say").on('click', function(e){ e.preventDefault();
 	  	var text = $("textarea[name=value]").val();
 	   	responsiveVoice.speak(text,"Spanish Female");
 	    text=encodeURIComponent(text); var url="http://" }) 
-</script>
-<script >
+
 	$("a.say1").on('click', function(e){ e.preventDefault();
   		var text = $("textarea[name=value]").prop('value');
   		text = text.split('');

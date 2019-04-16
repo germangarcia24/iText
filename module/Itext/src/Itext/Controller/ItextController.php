@@ -104,61 +104,8 @@ class ItextController extends AbstractActionController
         }
         return $formItext;
     }
-    /*
-    public function updateItextAction(){
-        
-        $id = (int) $this->params()->fromRoute('ID', 0);
-        $itext = null;
-        if (!$id) {
-            return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'Error'));
-        }
-        try {
-            $itext = $this->getItextTable()->getItextById($id);
-            
-        }
-        catch (\Exception $ex) {
-            //$this->flashMessenger()->addErrorMessage("No se encontró una serie con el id: ". $id.".");
-            echo "Hubo un error"; exit;
-            //return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'index'));
-            
-        }
-         
-        $form  = new ItextForm();
-        $form->bind($itext);
-        $form->get('ID')->setAttribute('value', $itext->ID);
-        $form->get('idf')->setAttribute('value', $itext->idf);
-        $form->get('value')->setAttribute('value', $itext->value); 
-        $form->get('submit')->setAttribute('value', 'Editar');
-
-        $request = $this->getRequest();
-
-        if ($request->isPost()) {
-            $form->setInputFilter($itext->getInputFilter());
-            $form->setData($request->getPost());
-
-
-            if ($form->isValid()) {
-                $this->getItextTable()->addItext($itext);
-                return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'addItext'));
-            }
-        }
-        
-        return array(
-            'id' => $id,
-            'form' => $form,
-        );
-    }
-
-    public function deleteItextAction(){
-        
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            $id = (int) $request->getPost('ID');
-            $this->getItextTable()->deleteItext($ID);
-            return $this->redirect()->toRoute('itext/itext', array('controller'=>'itext', 'action' => 'addItext'));
-        }
-    }
-    */
+    
+    
         
 
 }
