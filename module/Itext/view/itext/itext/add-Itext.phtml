@@ -18,6 +18,7 @@ echo $this->formRow($form->get('idf'));?>
 		
 			<tr>
 				 <td>
+				 	
 				 	<?php echo  $this->formRow($form->get('value1')); ?>
 				 </td>
 			 </tr>
@@ -42,7 +43,7 @@ echo $this->formRow($form->get('idf'));?>
  <script> 
 	 $("a.say").on('click', function(e){ e.preventDefault();
 	  	var text = $("textarea[name=value]").val();
-	   	responsiveVoice.speak(text,"Spanish Female");
+	   	responsiveVoice.speak(text,"UK English Male");
 	    text=encodeURIComponent(text); var url="http://" }) 
 
 	$("a.say1").on('click', function(e){ e.preventDefault();

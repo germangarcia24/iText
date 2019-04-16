@@ -27,11 +27,12 @@ class ItextController extends AbstractActionController
     }
 
     public function indexAction(){
-        //$itexts = //$this->getItextTable()->fetchAll();
+        //$itexts = $this->getItextTable()->fetchAll();
         return new ViewModel();//array('itexts' => $itexts));
     }
 
     public function addItextAction(){
+        $itexts = $this->getItextTable()->fetchAllTexts();
         $form = new ItextForm();
         $form = $this->setFormSelectOptions($form, 0);
         
@@ -49,7 +50,7 @@ class ItextController extends AbstractActionController
                 
             }
         }
-        return array('form' => $form);
+        return new ViewModel(array('form' => $form,'itexts' => $itexts));
     }
 
     public function returnTextAction(){
